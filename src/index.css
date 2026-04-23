@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", sans-serif;
+
+  --color-forest: #051F1B;
+  --color-emerald-accent: #10B981;
+  --color-gold: #D4AF37;
+  --color-muted: #A3B1AF;
+  --color-glass: rgba(255, 255, 255, 0.04);
+  --color-glass-border: rgba(255, 255, 255, 0.08);
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-forest text-white antialiased;
+  }
+}
+
+.atmosphere {
+  @apply fixed inset-0 -z-10;
+  background: radial-gradient(circle at 80% 20%, #0D3B33 0%, transparent 40%), 
+              radial-gradient(circle at 10% 80%, #082E28 0%, transparent 50%);
+}
+
+@utility glass-blur {
+  backdrop-filter: blur(10px);
+}
+
+.glass {
+  background-color: var(--color-glass);
+  border: 1px solid var(--color-glass-border);
+  @apply glass-blur;
+}
+
+.testimonial-box {
+  background-color: var(--color-glass);
+  border-left: 4px solid var(--color-gold);
+  @apply p-6 glass-blur rounded-r-lg;
+}
+
+.tagline {
+  @apply text-[11px] uppercase tracking-[3px] font-semibold text-gold mb-4 block;
+}
+
+.btn {
+  @apply px-8 py-4 rounded-[4px] text-sm font-bold uppercase tracking-wider transition-all duration-300 active:scale-95;
+}
+
+.btn-primary {
+  @apply bg-gold text-black hover:bg-gold/90;
+}
+
+.btn-secondary {
+  @apply bg-transparent text-white border border-glass-border hover:bg-white/5;
+}
+
+.contact-card {
+  @apply bg-white text-black p-8 rounded-2xl shadow-[0_24px_48px_rgba(0,0,0,0.4)];
+}
